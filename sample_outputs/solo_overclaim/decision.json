@@ -1,0 +1,7 @@
+{
+  "decision": "approve",
+  "reviewer": "demo.analyst",
+  "reason": "Plausible pattern; approve for testing with the listed data.",
+  "card_hash": "d054b9c37f3633f401b0c57f03a2cdaf326f7914f9dec48e35f6632cee8d6551",
+  "meaning": "Approved as a risk hypothesis worth testing against data. Not a finding of fact."
+}

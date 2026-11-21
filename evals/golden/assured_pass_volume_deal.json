@@ -1,0 +1,427 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "assured_pass_volume_deal",
+  "title": "Assured passes in exchange for routed training volume (simulated)",
+  "theme": "How might a provider and an employer trade assessment outcomes for guaranteed enrolment volume?",
+  "disclaimer": "SIMULATED RISK HYPOTHESIS. Produced by scripted/LLM agents role-playing incentives; it is NOT evidence that any person or organisation has behaved this way. Social media excerpts are unverified. Human approval means 'worth testing against data', not a finding of fact.",
+  "status": "PENDING_HUMAN_REVIEW",
+  "actors": [
+    {
+      "actor": "trainee",
+      "role": "not_involved",
+      "functions": [],
+      "contributions": [],
+      "benefits": [],
+      "functionally_necessary": null,
+      "intent": "NOT_APPLICABLE"
+    },
+    {
+      "actor": "provider",
+      "role": "initiator",
+      "functions": [
+        "assessment_result",
+        "grant_claim_submission"
+      ],
+      "contributions": [
+        "Assures pass outcomes for staff the employer nominates.",
+        "Claims funding for each nominated trainee."
+      ],
+      "benefits": [
+        "A steady block of funded enrolments.",
+        "Predictable grant revenue."
+      ],
+      "functionally_necessary": true,
+      "intent": "UNKNOWN"
+    },
+    {
+      "actor": "employer",
+      "role": "acceptor",
+      "functions": [
+        "course_enrolment",
+        "fee_funding"
+      ],
+      "contributions": [
+        "Nominates all staff needing mandatory certification to this one provider.",
+        "Sponsors fees for the nominated staff, largely offset by subsidy."
+      ],
+      "benefits": [
+        "Certified staff with minimal lost work time.",
+        "Low net cost of compliance training."
+      ],
+      "functionally_necessary": true,
+      "intent": "UNKNOWN"
+    }
+  ],
+  "flows": [
+    {
+      "label": "SIMULATED",
+      "proposed_by": "provider",
+      "round": 1,
+      "from_party": "provider",
+      "to_party": "employer",
+      "asset": "certification",
+      "description": "Certificates for nominated staff regardless of competence."
+    },
+    {
+      "label": "SIMULATED",
+      "proposed_by": "provider",
+      "round": 1,
+      "from_party": "grant_scheme",
+      "to_party": "provider",
+      "asset": "grant_funds",
+      "description": "Funding per nominated trainee."
+    },
+    {
+      "label": "SIMULATED",
+      "proposed_by": "employer",
+      "round": 1,
+      "from_party": "employer",
+      "to_party": "provider",
+      "asset": "enrolments",
+      "description": "All mandatory training volume routed to one provider."
+    },
+    {
+      "label": "SIMULATED",
+      "proposed_by": "employer",
+      "round": 1,
+      "from_party": "employer",
+      "to_party": "provider",
+      "asset": "course_fee",
+      "description": "Sponsored fees."
+    }
+  ],
+  "source_material": [
+    {
+      "source_id": "S2",
+      "annex": "B",
+      "text": "Almost $600 for basic cleaning training? How is that worth it?",
+      "basis": "Unverified",
+      "cited_by": [
+        "employer"
+      ]
+    },
+    {
+      "source_id": "S4",
+      "annex": "B",
+      "text": "Nobody in my class ever fails. Feels like providers just pass everyone to keep the funding.",
+      "basis": "Unverified",
+      "cited_by": [
+        "provider"
+      ]
+    }
+  ],
+  "simulated_behaviour": [
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "assessment_result",
+      "description": "Assures pass outcomes for staff the employer nominates.",
+      "benefit_to_self": "A steady block of funded enrolments.",
+      "behaviour_tags": [
+        "assured_pass"
+      ],
+      "grounding": [
+        {
+          "source_id": "S4",
+          "relation": "S4 is a perception that providers pass everyone to keep funding."
+        }
+      ],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "grant_claim_submission",
+      "description": "Claims funding for each nominated trainee.",
+      "benefit_to_self": "Predictable grant revenue.",
+      "behaviour_tags": [],
+      "grounding": [],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "employer",
+      "round": 1,
+      "function": "course_enrolment",
+      "description": "Nominates all staff needing mandatory certification to this one provider.",
+      "benefit_to_self": "Certified staff with minimal lost work time.",
+      "behaviour_tags": [
+        "employer_nomination",
+        "volume_steering"
+      ],
+      "grounding": [
+        {
+          "source_id": "S2",
+          "relation": "S2 questions the value of a basic course; volume deals may not reflect quality."
+        }
+      ],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "employer",
+      "round": 1,
+      "function": "fee_funding",
+      "description": "Sponsors fees for the nominated staff, largely offset by subsidy.",
+      "benefit_to_self": "Low net cost of compliance training.",
+      "behaviour_tags": [],
+      "grounding": [],
+      "awareness": "not_stated"
+    }
+  ],
+  "assumptions": [
+    {
+      "label": "ASSUMPTION",
+      "made_by": "provider",
+      "round": 1,
+      "text": "The employer can route all mandatory training to one provider without challenge."
+    },
+    {
+      "label": "ASSUMPTION",
+      "made_by": "employer",
+      "round": 1,
+      "text": "Staff competence is not checked independently after certification."
+    }
+  ],
+  "functional_dependency": {
+    "participants": [
+      "employer",
+      "provider"
+    ],
+    "required_functions": [
+      "assessment_result",
+      "course_enrolment",
+      "fee_funding",
+      "grant_claim_submission"
+    ],
+    "removal_results": [
+      {
+        "removed_actor": "employer",
+        "remaining_actors": [
+          "provider"
+        ],
+        "still_feasible": false,
+        "uncovered_functions": [
+          "fee_funding"
+        ],
+        "functionally_necessary": true
+      },
+      {
+        "removed_actor": "provider",
+        "remaining_actors": [
+          "employer"
+        ],
+        "still_feasible": false,
+        "uncovered_functions": [
+          "assessment_result"
+        ],
+        "functionally_necessary": true
+      }
+    ],
+    "necessary_roles": [
+      "employer",
+      "provider"
+    ],
+    "substitutable_roles": [],
+    "single_actor_feasible_by": [],
+    "note": "Shows which roles the simulated mechanism needs. It does not show cooperation or intent."
+  },
+  "cooperation": {
+    "interactions": [
+      {
+        "from_actor": "provider",
+        "to_actor": "employer",
+        "round": 1,
+        "offer_intent": "propose",
+        "offer_text": "Simulated: assured pass outcomes for staff you nominate, if all your mandatory training is routed to us.",
+        "response": "accepted",
+        "response_text": "Simulated: would route all staff certifications to you on that basis."
+      }
+    ],
+    "roles": [
+      {
+        "actor": "trainee",
+        "role": "not_involved",
+        "contributed": false,
+        "excluded": true
+      },
+      {
+        "actor": "provider",
+        "role": "initiator",
+        "contributed": true,
+        "excluded": false
+      },
+      {
+        "actor": "employer",
+        "role": "acceptor",
+        "contributed": true,
+        "excluded": false
+      }
+    ],
+    "cooperating_pairs": [
+      [
+        "employer",
+        "provider"
+      ]
+    ],
+    "summary": "SIMULATED_COOPERATION",
+    "explanation": "employer accepted an offer from provider (round 1) (Simulated interaction, not a real-world fact.)"
+  },
+  "intent_assessment": [
+    {
+      "actor": "trainee",
+      "intent": "NOT_APPLICABLE",
+      "basis": "Did not contribute to the mechanism."
+    },
+    {
+      "actor": "provider",
+      "intent": "UNKNOWN",
+      "basis": "The scenario does not establish whether this actor knew the conduct was improper. Taking part or accepting a reward does not by itself show intent."
+    },
+    {
+      "actor": "employer",
+      "intent": "UNKNOWN",
+      "basis": "The scenario does not establish whether this actor knew the conduct was improper. Taking part or accepting a reward does not by itself show intent."
+    }
+  ],
+  "overall_assessment": {
+    "classification": "POTENTIAL_COLLUSION",
+    "core_actors": [
+      "employer",
+      "provider"
+    ],
+    "intent_resolved": false,
+    "explanation": "Necessary roles (employer, provider) interacted in the simulation, but intent is unresolved for employer, provider. Needs human review and real data."
+  },
+  "mo_classification": {
+    "provisional": true,
+    "rule_label": "NEW",
+    "fully_covered_mos": [],
+    "partial_matches": {},
+    "novel_elements": [
+      "assured_pass",
+      "employer_nomination",
+      "volume_steering"
+    ],
+    "reviewer_label": "NEW",
+    "reviewer_mo_ids": [],
+    "reviewer_rationale": "No MO in the library covers assessment integrity traded for enrolment volume. MO-08 involves a sponsor but concerns value flowing back, which is absent here.",
+    "agreement": true,
+    "tag_annotation_version": "2026-11-19.1"
+  },
+  "evidence": {
+    "rule_strength": "LOW",
+    "reviewer_strength": "LOW",
+    "final_strength": "LOW",
+    "basis": [
+      "S4: unverified social media excerpt; at most a weak signal for one element, not proof of the full arrangement.",
+      "Simulated agent behaviour is a hypothesis and adds no evidential weight.",
+      "MODERATE or STRONG require verified data and a human reviewer."
+    ]
+  },
+  "test_data_needed": [
+    {
+      "data_item": "Pass rate by provider and by sponsoring employer",
+      "purpose": "Find provider-employer pairs with unusually high pass rates",
+      "granularity": "aggregate"
+    },
+    {
+      "data_item": "Concentration of an employer's sponsored enrolments across providers",
+      "purpose": "Detect exclusive routing",
+      "granularity": "aggregate"
+    },
+    {
+      "data_item": "Assessment re-sit and fail counts per cohort",
+      "purpose": "Check whether failure is ever recorded",
+      "granularity": "aggregate"
+    }
+  ],
+  "review": {
+    "performed_by": "review_agent",
+    "completed": true,
+    "source_findings": [
+      {
+        "source_id": "S4",
+        "finding": "weak",
+        "note": "General perception about pass rates; does not mention employers."
+      },
+      {
+        "source_id": "S2",
+        "finding": "irrelevant",
+        "note": "Price complaint; says nothing about assessment or volume."
+      }
+    ],
+    "assumption_findings": [
+      {
+        "assumption_index": 0,
+        "finding": "questionable",
+        "note": "Depends on sector rules for mandatory training."
+      },
+      {
+        "assumption_index": 1,
+        "finding": "reasonable",
+        "note": "Plausible but untested."
+      }
+    ],
+    "concerns": [
+      "Exclusive provider relationships are often legitimate; the signal is pass-rate anomaly combined with exclusivity."
+    ],
+    "deterministic_checks": [
+      {
+        "name": "grounding_ids_exist_and_usable",
+        "passed": true,
+        "blocking": true,
+        "detail": "all grounding IDs resolve to usable sources"
+      },
+      {
+        "name": "grounding_within_actor_visibility",
+        "passed": true,
+        "blocking": true,
+        "detail": "each actor cited only sources it could see"
+      },
+      {
+        "name": "no_quarantined_text_in_card",
+        "passed": true,
+        "blocking": true,
+        "detail": "none"
+      },
+      {
+        "name": "output_safety_rescan",
+        "passed": true,
+        "blocking": true,
+        "detail": "no unsafe or fact-asserting content"
+      },
+      {
+        "name": "review_checked_all_cited_sources",
+        "passed": true,
+        "blocking": false,
+        "detail": "all cited excerpts reviewed"
+      },
+      {
+        "name": "mo_label_agreement",
+        "passed": true,
+        "blocking": false,
+        "detail": "rule and reviewer agree"
+      },
+      {
+        "name": "evidence_not_overstated",
+        "passed": true,
+        "blocking": false,
+        "detail": "reviewer grading within rule ceiling"
+      },
+      {
+        "name": "dependency_cooperation_intent_assessed_separately",
+        "passed": true,
+        "blocking": false,
+        "detail": "POTENTIAL_COLLUSION: Necessary roles (employer, provider) interacted in the simulation, but intent is unresolved for employer, provider. Needs human review and real data."
+      }
+    ]
+  },
+  "flags": [
+    "intent_unresolved:employer",
+    "intent_unresolved:provider",
+    "mo_label_provisional:NEW"
+  ]
+}

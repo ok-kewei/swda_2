@@ -1,0 +1,67 @@
+{
+  "id": "assured_pass_volume_deal",
+  "title": "Assured passes in exchange for routed training volume",
+  "theme": "How might a provider and an employer trade assessment outcomes for guaranteed enrolment volume?",
+  "turn_order": ["provider", "employer", "trainee"],
+  "scripts": {
+    "provider": [
+      {"__tool_calls__": [{"name": "provider_evidence_read", "args": {"source_id": "S4"}}]},
+      {
+        "messages": [{"to": "employer", "intent": "propose", "text": "Simulated: assured pass outcomes for staff you nominate, if all your mandatory training is routed to us."}],
+        "contributions": [
+          {"function": "assessment_result", "description": "Assures pass outcomes for staff the employer nominates.", "benefit_to_self": "A steady block of funded enrolments.", "behaviour_tags": ["assured_pass"], "grounding": [{"source_id": "S4", "relation": "S4 is a perception that providers pass everyone to keep funding."}]},
+          {"function": "grant_claim_submission", "description": "Claims funding for each nominated trainee.", "benefit_to_self": "Predictable grant revenue.", "behaviour_tags": [], "grounding": []}
+        ],
+        "flows": [
+          {"from_party": "provider", "to_party": "employer", "asset": "certification", "description": "Certificates for nominated staff regardless of competence."},
+          {"from_party": "grant_scheme", "to_party": "provider", "asset": "grant_funds", "description": "Funding per nominated trainee."}
+        ],
+        "assumptions": [{"text": "The employer can route all mandatory training to one provider without challenge."}],
+        "done": true
+      }
+    ],
+    "employer": [
+      {"__tool_calls__": [{"name": "employer_evidence_read", "args": {"source_id": "S2"}}]},
+      {
+        "messages": [{"to": "provider", "intent": "accept", "text": "Simulated: would route all staff certifications to you on that basis."}],
+        "contributions": [
+          {"function": "course_enrolment", "description": "Nominates all staff needing mandatory certification to this one provider.", "benefit_to_self": "Certified staff with minimal lost work time.", "behaviour_tags": ["employer_nomination", "volume_steering"], "grounding": [{"source_id": "S2", "relation": "S2 questions the value of a basic course; volume deals may not reflect quality."}]},
+          {"function": "fee_funding", "description": "Sponsors fees for the nominated staff, largely offset by subsidy.", "benefit_to_self": "Low net cost of compliance training.", "behaviour_tags": [], "grounding": []}
+        ],
+        "flows": [
+          {"from_party": "employer", "to_party": "provider", "asset": "enrolments", "description": "All mandatory training volume routed to one provider."},
+          {"from_party": "employer", "to_party": "provider", "asset": "course_fee", "description": "Sponsored fees."}
+        ],
+        "assumptions": [{"text": "Staff competence is not checked independently after certification."}],
+        "done": true
+      }
+    ],
+    "trainee": [
+      {"messages": [], "contributions": [], "assumptions": [], "done": true}
+    ],
+    "review": [
+      {"__tool_calls__": [{"name": "source_validate", "args": {"source_ids": ["S2", "S4"]}},
+                           {"name": "mo_compare", "args": {"behaviour_tags": ["assured_pass", "employer_nomination", "volume_steering"]}}]},
+      {
+        "source_findings": [
+          {"source_id": "S4", "finding": "weak", "note": "General perception about pass rates; does not mention employers."},
+          {"source_id": "S2", "finding": "irrelevant", "note": "Price complaint; says nothing about assessment or volume."}
+        ],
+        "assumption_findings": [
+          {"assumption_index": 0, "finding": "questionable", "note": "Depends on sector rules for mandatory training."},
+          {"assumption_index": 1, "finding": "reasonable", "note": "Plausible but untested."}
+        ],
+        "evidence_strength": "LOW",
+        "mo_label": "NEW",
+        "mo_ids": [],
+        "mo_rationale": "No MO in the library covers assessment integrity traded for enrolment volume. MO-08 involves a sponsor but concerns value flowing back, which is absent here.",
+        "test_data_needed": [
+          {"data_item": "Pass rate by provider and by sponsoring employer", "purpose": "Find provider-employer pairs with unusually high pass rates", "granularity": "aggregate"},
+          {"data_item": "Concentration of an employer's sponsored enrolments across providers", "purpose": "Detect exclusive routing", "granularity": "aggregate"},
+          {"data_item": "Assessment re-sit and fail counts per cohort", "purpose": "Check whether failure is ever recorded", "granularity": "aggregate"}
+        ],
+        "concerns": ["Exclusive provider relationships are often legitimate; the signal is pass-rate anomaly combined with exclusivity."]
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "rt_persistent_failure",
+  "title": "Red team: agent never produces a valid turn (simulated)",
+  "theme": "Provider output is malformed on every attempt; reviewer output is unusable.",
+  "disclaimer": "SIMULATED RISK HYPOTHESIS. Produced by scripted/LLM agents role-playing incentives; it is NOT evidence that any person or organisation has behaved this way. Social media excerpts are unverified. Human approval means 'worth testing against data', not a finding of fact.",
+  "status": "INCOMPLETE",
+  "actors": [
+    {
+      "actor": "trainee",
+      "role": "not_involved",
+      "functions": [],
+      "contributions": [],
+      "benefits": [],
+      "functionally_necessary": null,
+      "intent": "NOT_APPLICABLE"
+    },
+    {
+      "actor": "provider",
+      "role": "not_involved",
+      "functions": [],
+      "contributions": [],
+      "benefits": [],
+      "functionally_necessary": null,
+      "intent": "NOT_APPLICABLE"
+    },
+    {
+      "actor": "employer",
+      "role": "not_involved",
+      "functions": [],
+      "contributions": [],
+      "benefits": [],
+      "functionally_necessary": null,
+      "intent": "NOT_APPLICABLE"
+    }
+  ],
+  "flows": [],
+  "source_material": [],
+  "simulated_behaviour": [],
+  "assumptions": [],
+  "functional_dependency": {
+    "participants": [],
+    "required_functions": [],
+    "removal_results": [],
+    "necessary_roles": [],
+    "substitutable_roles": [],
+    "single_actor_feasible_by": [],
+    "note": "Shows which roles the simulated mechanism needs. It does not show cooperation or intent."
+  },
+  "cooperation": {
+    "interactions": [],
+    "roles": [
+      {
+        "actor": "trainee",
+        "role": "not_involved",
+        "contributed": false,
+        "excluded": true
+      },
+      {
+        "actor": "provider",
+        "role": "not_involved",
+        "contributed": false,
+        "excluded": true
+      },
+      {
+        "actor": "employer",
+        "role": "not_involved",
+        "contributed": false,
+        "excluded": true
+      }
+    ],
+    "cooperating_pairs": [],
+    "summary": "NO_INTERACTION",
+    "explanation": "No accepted offer between contributing actors. (Simulated interaction, not a real-world fact.)"
+  },
+  "intent_assessment": [
+    {
+      "actor": "trainee",
+      "intent": "NOT_APPLICABLE",
+      "basis": "Did not contribute to the mechanism."
+    },
+    {
+      "actor": "provider",
+      "intent": "NOT_APPLICABLE",
+      "basis": "Did not contribute to the mechanism."
+    },
+    {
+      "actor": "employer",
+      "intent": "NOT_APPLICABLE",
+      "basis": "Did not contribute to the mechanism."
+    }
+  ],
+  "overall_assessment": {
+    "classification": "INSUFFICIENT",
+    "core_actors": [],
+    "intent_resolved": false,
+    "explanation": "No actor contributed to a mechanism."
+  },
+  "mo_classification": {
+    "provisional": true,
+    "rule_label": "NEW",
+    "fully_covered_mos": [],
+    "partial_matches": {},
+    "novel_elements": [],
+    "reviewer_label": null,
+    "reviewer_mo_ids": [],
+    "reviewer_rationale": "",
+    "agreement": false,
+    "tag_annotation_version": "2026-11-19.1"
+  },
+  "evidence": {
+    "rule_strength": "SPECULATIVE",
+    "reviewer_strength": null,
+    "final_strength": "SPECULATIVE",
+    "basis": [
+      "Simulated agent behaviour is a hypothesis and adds no evidential weight.",
+      "MODERATE or STRONG require verified data and a human reviewer."
+    ]
+  },
+  "test_data_needed": [],
+  "review": {
+    "performed_by": "review_agent",
+    "completed": false,
+    "source_findings": [],
+    "assumption_findings": [],
+    "concerns": [],
+    "deterministic_checks": [
+      {
+        "name": "grounding_ids_exist_and_usable",
+        "passed": true,
+        "blocking": true,
+        "detail": "all grounding IDs resolve to usable sources"
+      },
+      {
+        "name": "grounding_within_actor_visibility",
+        "passed": true,
+        "blocking": true,
+        "detail": "each actor cited only sources it could see"
+      },
+      {
+        "name": "no_quarantined_text_in_card",
+        "passed": true,
+        "blocking": true,
+        "detail": "none"
+      },
+      {
+        "name": "output_safety_rescan",
+        "passed": true,
+        "blocking": true,
+        "detail": "no unsafe or fact-asserting content"
+      },
+      {
+        "name": "mo_label_agreement",
+        "passed": false,
+        "blocking": false,
+        "detail": "no reviewer label (review failed)"
+      },
+      {
+        "name": "evidence_not_overstated",
+        "passed": true,
+        "blocking": false,
+        "detail": "reviewer grading within rule ceiling"
+      },
+      {
+        "name": "dependency_cooperation_intent_assessed_separately",
+        "passed": true,
+        "blocking": false,
+        "detail": "INSUFFICIENT: No actor contributed to a mechanism."
+      }
+    ]
+  },
+  "flags": [
+    "mo_label_provisional:NEW",
+    "review_failed",
+    "turn_failed:provider@r1"
+  ]
+}

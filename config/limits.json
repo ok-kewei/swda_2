@@ -1,0 +1,9 @@
+{
+  "max_rounds": 3,
+  "max_messages_per_agent_per_round": 3,
+  "max_message_chars": 500,
+  "max_llm_calls": 40,
+  "max_retries": 2,
+  "max_cost_usd": 0.50,
+  "usd_per_1k_tokens": 0.01
+}

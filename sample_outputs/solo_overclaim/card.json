@@ -1,0 +1,336 @@
+{
+  "schema_version": "1.0",
+  "card_id": "PC-solo_overclaim",
+  "run_id": "solo_overclaim",
+  "scenario_id": "solo_overclaim",
+  "title": "Provider overclaims delivered hours (simulated)",
+  "theme": "Could a provider claim for more training than it delivered, and does that need anyone else's cooperation?",
+  "disclaimer": "SIMULATED RISK HYPOTHESIS. Produced by scripted/LLM agents role-playing incentives; it is NOT evidence that any person or organisation has behaved this way. Social media excerpts are unverified. Human approval means 'worth testing against data', not a finding of fact.",
+  "status": "PENDING_HUMAN_REVIEW",
+  "actors": [
+    {
+      "actor": "trainee",
+      "role": "not_involved",
+      "functions": [],
+      "contributions": [],
+      "benefits": [],
+      "functionally_necessary": null,
+      "intent": "NOT_APPLICABLE"
+    },
+    {
+      "actor": "provider",
+      "role": "independent",
+      "functions": [
+        "course_delivery_record",
+        "grant_claim_submission"
+      ],
+      "contributions": [
+        "Records more training hours than were delivered.",
+        "Claims funding for the recorded hours."
+      ],
+      "benefits": [
+        "Full funding for partial delivery.",
+        "Lower delivery cost per trainee."
+      ],
+      "functionally_necessary": true,
+      "intent": "UNKNOWN"
+    },
+    {
+      "actor": "employer",
+      "role": "not_involved",
+      "functions": [],
+      "contributions": [],
+      "benefits": [],
+      "functionally_necessary": null,
+      "intent": "NOT_APPLICABLE"
+    }
+  ],
+  "flows": [
+    {
+      "label": "SIMULATED",
+      "proposed_by": "provider",
+      "round": 1,
+      "from_party": "grant_scheme",
+      "to_party": "provider",
+      "asset": "grant_funds",
+      "description": "Funding for hours recorded but not delivered."
+    }
+  ],
+  "source_material": [
+    {
+      "source_id": "MO-07",
+      "annex": "A",
+      "text": "Overclaimed training: Claims exceed the training or attendance actually delivered",
+      "basis": "Observed overseas",
+      "cited_by": [
+        "rule:mo_classification"
+      ]
+    },
+    {
+      "source_id": "S2",
+      "annex": "B",
+      "text": "Almost $600 for basic cleaning training? How is that worth it?",
+      "basis": "Unverified",
+      "cited_by": [
+        "provider"
+      ]
+    }
+  ],
+  "simulated_behaviour": [
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "course_delivery_record",
+      "description": "Records more training hours than were delivered.",
+      "benefit_to_self": "Lower delivery cost per trainee.",
+      "behaviour_tags": [
+        "claim_exceeds_delivery",
+        "partial_delivery"
+      ],
+      "grounding": [
+        {
+          "source_id": "S2",
+          "relation": "S2 questions price relative to content, consistent with less being delivered than paid for."
+        }
+      ],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "grant_claim_submission",
+      "description": "Claims funding for the recorded hours.",
+      "benefit_to_self": "Full funding for partial delivery.",
+      "behaviour_tags": [
+        "claim_exceeds_delivery"
+      ],
+      "grounding": [],
+      "awareness": "not_stated"
+    }
+  ],
+  "assumptions": [
+    {
+      "label": "ASSUMPTION",
+      "made_by": "provider",
+      "round": 1,
+      "text": "Trainees do not see or sign the hour-level delivery record."
+    }
+  ],
+  "functional_dependency": {
+    "participants": [
+      "provider"
+    ],
+    "required_functions": [
+      "course_delivery_record",
+      "grant_claim_submission"
+    ],
+    "removal_results": [
+      {
+        "removed_actor": "provider",
+        "remaining_actors": [],
+        "still_feasible": false,
+        "uncovered_functions": [
+          "course_delivery_record",
+          "grant_claim_submission"
+        ],
+        "functionally_necessary": true
+      }
+    ],
+    "necessary_roles": [
+      "provider"
+    ],
+    "substitutable_roles": [],
+    "single_actor_feasible_by": [
+      "provider"
+    ],
+    "note": "Shows which roles the simulated mechanism needs. It does not show cooperation or intent."
+  },
+  "cooperation": {
+    "interactions": [
+      {
+        "from_actor": "provider",
+        "to_actor": "trainee",
+        "round": 1,
+        "offer_intent": "inform",
+        "offer_text": "Simulated: class time is shortened; the course record is unchanged.",
+        "response": "no_response",
+        "response_text": ""
+      },
+      {
+        "from_actor": "trainee",
+        "to_actor": "provider",
+        "round": 1,
+        "offer_intent": "inform",
+        "offer_text": "Simulated: unaware of what is recorded; no action taken.",
+        "response": "no_response",
+        "response_text": ""
+      }
+    ],
+    "roles": [
+      {
+        "actor": "trainee",
+        "role": "not_involved",
+        "contributed": false,
+        "excluded": true
+      },
+      {
+        "actor": "provider",
+        "role": "independent",
+        "contributed": true,
+        "excluded": false
+      },
+      {
+        "actor": "employer",
+        "role": "not_involved",
+        "contributed": false,
+        "excluded": true
+      }
+    ],
+    "cooperating_pairs": [],
+    "summary": "NO_INTERACTION",
+    "explanation": "No accepted offer between contributing actors. (Simulated interaction, not a real-world fact.)"
+  },
+  "intent_assessment": [
+    {
+      "actor": "trainee",
+      "intent": "NOT_APPLICABLE",
+      "basis": "Did not contribute to the mechanism."
+    },
+    {
+      "actor": "provider",
+      "intent": "UNKNOWN",
+      "basis": "The scenario does not establish whether this actor knew the conduct was improper. Taking part or accepting a reward does not by itself show intent."
+    },
+    {
+      "actor": "employer",
+      "intent": "NOT_APPLICABLE",
+      "basis": "Did not contribute to the mechanism."
+    }
+  ],
+  "overall_assessment": {
+    "classification": "SINGLE_ACTOR",
+    "core_actors": [
+      "provider"
+    ],
+    "intent_resolved": false,
+    "explanation": "provider can carry out the mechanism alone; other parties are not needed. Treat as single-actor misconduct, not collusion."
+  },
+  "mo_classification": {
+    "provisional": true,
+    "rule_label": "KNOWN",
+    "fully_covered_mos": [
+      "MO-07"
+    ],
+    "partial_matches": {},
+    "novel_elements": [],
+    "reviewer_label": "KNOWN",
+    "reviewer_mo_ids": [
+      "MO-07"
+    ],
+    "reviewer_rationale": "Matches MO-07, claims exceeding training delivered. MO-07 basis is observed overseas, so local applicability is an assumption.",
+    "agreement": true,
+    "tag_annotation_version": "2026-11-19.1"
+  },
+  "evidence": {
+    "rule_strength": "LOW",
+    "reviewer_strength": "LOW",
+    "final_strength": "LOW",
+    "basis": [
+      "MO-07 basis 'Observed overseas' is a typology-level label; it does not show that this simulated scenario occurred.",
+      "S2: unverified social media excerpt; at most a weak signal for one element, not proof of the full arrangement.",
+      "Simulated agent behaviour is a hypothesis and adds no evidential weight.",
+      "MODERATE or STRONG require verified data and a human reviewer."
+    ]
+  },
+  "test_data_needed": [
+    {
+      "data_item": "Claimed hours versus scheduled session hours per course run",
+      "purpose": "Detect claims above schedule",
+      "granularity": "aggregate"
+    },
+    {
+      "data_item": "Session-level attendance timestamps",
+      "purpose": "Compare actual session length with recorded length",
+      "granularity": "pseudonymised_record"
+    }
+  ],
+  "review": {
+    "performed_by": "review_agent",
+    "completed": true,
+    "source_findings": [
+      {
+        "source_id": "S2",
+        "finding": "weak",
+        "note": "Price complaint only; consistent with but not indicative of overclaiming."
+      }
+    ],
+    "assumption_findings": [
+      {
+        "assumption_index": 0,
+        "finding": "reasonable",
+        "note": "Test whether trainees attest at session level."
+      }
+    ],
+    "concerns": [
+      "Single-actor misconduct: route to standard provider audit rather than collusion review."
+    ],
+    "deterministic_checks": [
+      {
+        "name": "grounding_ids_exist_and_usable",
+        "passed": true,
+        "blocking": true,
+        "detail": "all grounding IDs resolve to usable sources"
+      },
+      {
+        "name": "grounding_within_actor_visibility",
+        "passed": true,
+        "blocking": true,
+        "detail": "each actor cited only sources it could see"
+      },
+      {
+        "name": "no_quarantined_text_in_card",
+        "passed": true,
+        "blocking": true,
+        "detail": "none"
+      },
+      {
+        "name": "output_safety_rescan",
+        "passed": true,
+        "blocking": true,
+        "detail": "no unsafe or fact-asserting content"
+      },
+      {
+        "name": "review_checked_all_cited_sources",
+        "passed": true,
+        "blocking": false,
+        "detail": "all cited excerpts reviewed"
+      },
+      {
+        "name": "mo_label_agreement",
+        "passed": true,
+        "blocking": false,
+        "detail": "rule and reviewer agree"
+      },
+      {
+        "name": "evidence_not_overstated",
+        "passed": true,
+        "blocking": false,
+        "detail": "reviewer grading within rule ceiling"
+      },
+      {
+        "name": "dependency_cooperation_intent_assessed_separately",
+        "passed": true,
+        "blocking": false,
+        "detail": "SINGLE_ACTOR: provider can carry out the mechanism alone; other parties are not needed. Treat as single-actor misconduct, not collusion."
+      }
+    ]
+  },
+  "flags": [
+    "intent_unresolved:provider",
+    "mo_label_provisional:KNOWN",
+    "single_actor_feasible:provider"
+  ],
+  "content_hash": "d054b9c37f3633f401b0c57f03a2cdaf326f7914f9dec48e35f6632cee8d6551"
+}

@@ -1,0 +1,5 @@
+{
+  "run_id": "rt_budget_exhaustion",
+  "scenario": "scenarios/rt_budget_exhaustion.json",
+  "scenario_id": "rt_budget_exhaustion"
+}

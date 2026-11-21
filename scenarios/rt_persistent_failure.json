@@ -1,0 +1,12 @@
+{
+  "id": "rt_persistent_failure",
+  "title": "Red team: agent never produces a valid turn",
+  "theme": "Provider output is malformed on every attempt; reviewer output is unusable.",
+  "turn_order": ["provider", "trainee", "employer"],
+  "scripts": {
+    "provider": ["not json", "{\"messages\": 5}", "{\"contributions\": [{\"function\": \"teleport\"}]}"],
+    "trainee": [{"messages": [], "contributions": [], "done": true}],
+    "employer": [{"messages": [], "contributions": [], "done": true}],
+    "review": []
+  }
+}

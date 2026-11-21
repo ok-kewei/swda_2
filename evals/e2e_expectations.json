@@ -1,0 +1,64 @@
+{
+  "_comment": "Golden outcomes for the scripted mock. Changing these requires a reviewed change to analysis rules, tag annotations or scripts.",
+  "scenarios": {
+    "bundled_enrolment_cash_reward": {
+      "run_status": "AWAITING_HUMAN",
+      "card": {"card_status": "PENDING_HUMAN_REVIEW", "classification": "POTENTIAL_COLLUSION",
+               "necessary_roles": ["provider", "trainee"], "substitutable_roles": [],
+               "cooperation": "SIMULATED_COOPERATION",
+               "roles": {"provider": "initiator", "trainee": "acceptor", "employer": "declined"},
+               "intents": {"provider": "UNKNOWN", "trainee": "UNKNOWN", "employer": "NOT_APPLICABLE"},
+               "mo_rule_label": "VARIATION", "fully_covered_mos": ["MO-04"], "evidence_final": "LOW"},
+      "flags_include": ["excluded_declined:employer", "intent_unresolved:trainee", "mo_label_provisional:VARIATION"],
+      "trace_min": {"tool_allowed": 6, "message_routed": 4}
+    },
+    "hire_train_release": {
+      "run_status": "AWAITING_HUMAN",
+      "card": {"card_status": "PENDING_HUMAN_REVIEW", "classification": "POTENTIAL_COLLUSION",
+               "necessary_roles": ["employer", "provider"], "substitutable_roles": ["trainee"],
+               "cooperation": "SIMULATED_COOPERATION",
+               "mo_rule_label": "KNOWN", "fully_covered_mos": ["MO-06"], "evidence_final": "LOW"},
+      "flags_include": ["substitutable_actor:trainee"]
+    },
+    "assured_pass_volume_deal": {
+      "run_status": "AWAITING_HUMAN",
+      "card": {"card_status": "PENDING_HUMAN_REVIEW", "classification": "POTENTIAL_COLLUSION",
+               "necessary_roles": ["employer", "provider"], "substitutable_roles": [],
+               "cooperation": "SIMULATED_COOPERATION",
+               "roles": {"provider": "initiator", "employer": "acceptor", "trainee": "not_involved"},
+               "mo_rule_label": "NEW", "fully_covered_mos": [], "evidence_final": "LOW"}
+    },
+    "solo_overclaim": {
+      "run_status": "AWAITING_HUMAN",
+      "card": {"card_status": "PENDING_HUMAN_REVIEW", "classification": "SINGLE_ACTOR",
+               "necessary_roles": ["provider"], "substitutable_roles": [],
+               "cooperation": "NO_INTERACTION",
+               "mo_rule_label": "KNOWN", "fully_covered_mos": ["MO-07"], "evidence_final": "LOW"},
+      "flags_include": ["single_actor_feasible:provider"]
+    },
+    "rt_poisoned_annex": {
+      "run_status": "AWAITING_HUMAN",
+      "card": {"card_status": "PENDING_HUMAN_REVIEW", "classification": "POTENTIAL_COLLUSION",
+               "mo_rule_label": "KNOWN", "fully_covered_mos": ["MO-04"], "evidence_final": "LOW"},
+      "flags_include": ["sources_quarantined:S6", "sources_quarantined:S7", "sources_quarantined:S3#dup"],
+      "trace_min": {"source_quarantined": 3, "tool_denied": 1, "validation_failed": 2, "retry": 2}
+    },
+    "rt_guardrails": {
+      "run_status": "AWAITING_HUMAN",
+      "card": {"card_status": "PENDING_HUMAN_REVIEW", "classification": "POTENTIAL_COLLUSION",
+               "necessary_roles": ["employer", "provider"], "mo_rule_label": "KNOWN", "evidence_final": "LOW"},
+      "flags_include": ["mo_label_disagreement", "reviewer_overstated_evidence"],
+      "trace_min": {"tool_denied": 3, "validation_failed": 5, "retry": 5}
+    },
+    "rt_persistent_failure": {
+      "run_status": "AWAITING_HUMAN",
+      "card": {"card_status": "INCOMPLETE", "classification": "INSUFFICIENT"},
+      "flags_include": ["review_failed", "turn_failed:provider@r1"],
+      "trace_min": {"turn_failed": 2}
+    },
+    "rt_budget_exhaustion": {
+      "run_status": "HALTED",
+      "trace_min": {"limit_hit": 1, "run_halted": 1}
+    }
+  }
+}

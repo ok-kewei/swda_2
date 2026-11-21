@@ -1,0 +1,5 @@
+{
+  "run_id": "rt_persistent_failure",
+  "scenario": "scenarios/rt_persistent_failure.json",
+  "scenario_id": "rt_persistent_failure"
+}

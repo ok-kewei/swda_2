@@ -1,0 +1,5 @@
+{
+  "run_id": "assured_pass_volume_deal",
+  "scenario": "scenarios/assured_pass_volume_deal.json",
+  "scenario_id": "assured_pass_volume_deal"
+}

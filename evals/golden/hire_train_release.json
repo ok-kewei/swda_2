@@ -1,0 +1,460 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "hire_train_release",
+  "title": "Short-term hiring timed to funded courses (simulated)",
+  "theme": "How might an employer and a provider align hiring and course cohorts so that grant support, rather than the job, drives the hire?",
+  "disclaimer": "SIMULATED RISK HYPOTHESIS. Produced by scripted/LLM agents role-playing incentives; it is NOT evidence that any person or organisation has behaved this way. Social media excerpts are unverified. Human approval means 'worth testing against data', not a finding of fact.",
+  "status": "PENDING_HUMAN_REVIEW",
+  "actors": [
+    {
+      "actor": "trainee",
+      "role": "acceptor",
+      "functions": [
+        "attendance_attestation"
+      ],
+      "contributions": [
+        "Attends and confirms attendance in a role expected to end after the course."
+      ],
+      "benefits": [
+        "Short-term wage and a certificate."
+      ],
+      "functionally_necessary": false,
+      "intent": "UNKNOWN"
+    },
+    {
+      "actor": "provider",
+      "role": "acceptor",
+      "functions": [
+        "course_delivery_record"
+      ],
+      "contributions": [
+        "Runs cohorts timed to the employer's hiring cycle and records delivery."
+      ],
+      "benefits": [
+        "Reliably filled cohorts."
+      ],
+      "functionally_necessary": true,
+      "intent": "UNKNOWN"
+    },
+    {
+      "actor": "employer",
+      "role": "initiator",
+      "functions": [
+        "course_enrolment",
+        "employment_record",
+        "fee_funding",
+        "grant_claim_submission"
+      ],
+      "contributions": [
+        "Hires people on short contracts timed to a funded course and releases them after completion.",
+        "Nominates the new hires for the funded course.",
+        "Sponsors the course fee, which is largely offset by subsidy.",
+        "Claims fee subsidy and any wage support for the hires."
+      ],
+      "benefits": [
+        "Eligibility for course and wage support.",
+        "Grant-supported headcount at low net cost.",
+        "Low net training cost.",
+        "Receives grant funds."
+      ],
+      "functionally_necessary": true,
+      "intent": "UNKNOWN"
+    }
+  ],
+  "flows": [
+    {
+      "label": "SIMULATED",
+      "proposed_by": "employer",
+      "round": 1,
+      "from_party": "employer",
+      "to_party": "provider",
+      "asset": "course_fee",
+      "description": "Sponsored fee for each hire."
+    },
+    {
+      "label": "SIMULATED",
+      "proposed_by": "employer",
+      "round": 1,
+      "from_party": "grant_scheme",
+      "to_party": "employer",
+      "asset": "grant_funds",
+      "description": "Fee subsidy and wage support claimed for the hires."
+    },
+    {
+      "label": "SIMULATED",
+      "proposed_by": "employer",
+      "round": 1,
+      "from_party": "employer",
+      "to_party": "trainee",
+      "asset": "employment",
+      "description": "Short contract covering the course period."
+    }
+  ],
+  "source_material": [
+    {
+      "source_id": "MO-06",
+      "annex": "A",
+      "text": "Employment created for grants: People are hired only to attend a course and are let go afterwards",
+      "basis": "Observed",
+      "cited_by": [
+        "rule:mo_classification"
+      ]
+    }
+  ],
+  "simulated_behaviour": [
+    {
+      "label": "SIMULATED",
+      "actor": "employer",
+      "round": 1,
+      "function": "employment_record",
+      "description": "Hires people on short contracts timed to a funded course and releases them after completion.",
+      "benefit_to_self": "Grant-supported headcount at low net cost.",
+      "behaviour_tags": [
+        "sham_employment",
+        "employment_ends_after_course"
+      ],
+      "grounding": [],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "employer",
+      "round": 1,
+      "function": "course_enrolment",
+      "description": "Nominates the new hires for the funded course.",
+      "benefit_to_self": "Eligibility for course and wage support.",
+      "behaviour_tags": [],
+      "grounding": [],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "employer",
+      "round": 1,
+      "function": "fee_funding",
+      "description": "Sponsors the course fee, which is largely offset by subsidy.",
+      "benefit_to_self": "Low net training cost.",
+      "behaviour_tags": [],
+      "grounding": [],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "employer",
+      "round": 1,
+      "function": "grant_claim_submission",
+      "description": "Claims fee subsidy and any wage support for the hires.",
+      "benefit_to_self": "Receives grant funds.",
+      "behaviour_tags": [],
+      "grounding": [],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "course_delivery_record",
+      "description": "Runs cohorts timed to the employer's hiring cycle and records delivery.",
+      "benefit_to_self": "Reliably filled cohorts.",
+      "behaviour_tags": [],
+      "grounding": [],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "trainee",
+      "round": 1,
+      "function": "attendance_attestation",
+      "description": "Attends and confirms attendance in a role expected to end after the course.",
+      "benefit_to_self": "Short-term wage and a certificate.",
+      "behaviour_tags": [],
+      "grounding": [],
+      "awareness": "not_stated"
+    }
+  ],
+  "assumptions": [
+    {
+      "label": "ASSUMPTION",
+      "made_by": "employer",
+      "round": 1,
+      "text": "Wage support is available to the employer while a hire attends training; not stated in sources."
+    },
+    {
+      "label": "ASSUMPTION",
+      "made_by": "provider",
+      "round": 1,
+      "text": "The provider knows the hires are temporary; it could equally be unaware."
+    },
+    {
+      "label": "ASSUMPTION",
+      "made_by": "trainee",
+      "round": 1,
+      "text": "The trainee may not know the role is temporary."
+    }
+  ],
+  "functional_dependency": {
+    "participants": [
+      "employer",
+      "provider",
+      "trainee"
+    ],
+    "required_functions": [
+      "attendance_attestation",
+      "course_delivery_record",
+      "course_enrolment",
+      "employment_record",
+      "fee_funding",
+      "grant_claim_submission"
+    ],
+    "removal_results": [
+      {
+        "removed_actor": "employer",
+        "remaining_actors": [
+          "provider",
+          "trainee"
+        ],
+        "still_feasible": false,
+        "uncovered_functions": [
+          "employment_record"
+        ],
+        "functionally_necessary": true
+      },
+      {
+        "removed_actor": "provider",
+        "remaining_actors": [
+          "employer",
+          "trainee"
+        ],
+        "still_feasible": false,
+        "uncovered_functions": [
+          "course_delivery_record"
+        ],
+        "functionally_necessary": true
+      },
+      {
+        "removed_actor": "trainee",
+        "remaining_actors": [
+          "employer",
+          "provider"
+        ],
+        "still_feasible": true,
+        "uncovered_functions": [],
+        "functionally_necessary": false
+      }
+    ],
+    "necessary_roles": [
+      "employer",
+      "provider"
+    ],
+    "substitutable_roles": [
+      "trainee"
+    ],
+    "single_actor_feasible_by": [],
+    "note": "Shows which roles the simulated mechanism needs. It does not show cooperation or intent."
+  },
+  "cooperation": {
+    "interactions": [
+      {
+        "from_actor": "employer",
+        "to_actor": "provider",
+        "round": 1,
+        "offer_intent": "propose",
+        "offer_text": "Simulated: would you run cohorts timed to our short-term hires so their course falls inside the contract period?",
+        "response": "accepted",
+        "response_text": "Simulated: would schedule cohorts around your hiring dates."
+      },
+      {
+        "from_actor": "employer",
+        "to_actor": "trainee",
+        "round": 1,
+        "offer_intent": "inform",
+        "offer_text": "Simulated: role offered for the course period; extension not expected.",
+        "response": "accepted",
+        "response_text": "Simulated: would take the short role for the wage and certificate."
+      }
+    ],
+    "roles": [
+      {
+        "actor": "trainee",
+        "role": "acceptor",
+        "contributed": true,
+        "excluded": false
+      },
+      {
+        "actor": "provider",
+        "role": "acceptor",
+        "contributed": true,
+        "excluded": false
+      },
+      {
+        "actor": "employer",
+        "role": "initiator",
+        "contributed": true,
+        "excluded": false
+      }
+    ],
+    "cooperating_pairs": [
+      [
+        "employer",
+        "provider"
+      ],
+      [
+        "employer",
+        "trainee"
+      ]
+    ],
+    "summary": "SIMULATED_COOPERATION",
+    "explanation": "provider accepted an offer from employer (round 1); trainee accepted an offer from employer (round 1) (Simulated interaction, not a real-world fact.)"
+  },
+  "intent_assessment": [
+    {
+      "actor": "trainee",
+      "intent": "UNKNOWN",
+      "basis": "The scenario does not establish whether this actor knew the conduct was improper. Taking part or accepting a reward does not by itself show intent."
+    },
+    {
+      "actor": "provider",
+      "intent": "UNKNOWN",
+      "basis": "The scenario does not establish whether this actor knew the conduct was improper. Taking part or accepting a reward does not by itself show intent."
+    },
+    {
+      "actor": "employer",
+      "intent": "UNKNOWN",
+      "basis": "The scenario does not establish whether this actor knew the conduct was improper. Taking part or accepting a reward does not by itself show intent."
+    }
+  ],
+  "overall_assessment": {
+    "classification": "POTENTIAL_COLLUSION",
+    "core_actors": [
+      "employer",
+      "provider"
+    ],
+    "intent_resolved": false,
+    "explanation": "Necessary roles (employer, provider) interacted in the simulation, but intent is unresolved for employer, provider. Needs human review and real data."
+  },
+  "mo_classification": {
+    "provisional": true,
+    "rule_label": "KNOWN",
+    "fully_covered_mos": [
+      "MO-06"
+    ],
+    "partial_matches": {},
+    "novel_elements": [],
+    "reviewer_label": "KNOWN",
+    "reviewer_mo_ids": [
+      "MO-06"
+    ],
+    "reviewer_rationale": "Matches MO-06: people hired only to attend a course and let go afterwards. No Annex B excerpt relates to this pattern.",
+    "agreement": true,
+    "tag_annotation_version": "2026-11-19.1"
+  },
+  "evidence": {
+    "rule_strength": "LOW",
+    "reviewer_strength": "LOW",
+    "final_strength": "LOW",
+    "basis": [
+      "MO-06 basis 'Observed' is a typology-level label; it does not show that this simulated scenario occurred.",
+      "Simulated agent behaviour is a hypothesis and adds no evidential weight.",
+      "MODERATE or STRONG require verified data and a human reviewer."
+    ]
+  },
+  "test_data_needed": [
+    {
+      "data_item": "Employment start and end dates relative to course dates",
+      "purpose": "Detect contracts that start and end with a funded course",
+      "granularity": "pseudonymised_record"
+    },
+    {
+      "data_item": "Employer retention rate after course completion",
+      "purpose": "Compare against sector baseline",
+      "granularity": "aggregate"
+    },
+    {
+      "data_item": "Share of an employer's training claims from staff with tenure under three months",
+      "purpose": "Spot hiring driven by grants",
+      "granularity": "aggregate"
+    }
+  ],
+  "review": {
+    "performed_by": "review_agent",
+    "completed": true,
+    "source_findings": [],
+    "assumption_findings": [
+      {
+        "assumption_index": 0,
+        "finding": "unsupported",
+        "note": "Wage support is not described in the annexes; confirm scheme rules before testing."
+      },
+      {
+        "assumption_index": 1,
+        "finding": "reasonable",
+        "note": "Provider knowledge is unknown; essential does not mean complicit."
+      },
+      {
+        "assumption_index": 2,
+        "finding": "reasonable",
+        "note": "Trainee may be unwitting."
+      }
+    ],
+    "concerns": [
+      "Provider is functionally essential but may be unwitting; avoid treating it as a co-conspirator without data."
+    ],
+    "deterministic_checks": [
+      {
+        "name": "grounding_ids_exist_and_usable",
+        "passed": true,
+        "blocking": true,
+        "detail": "all grounding IDs resolve to usable sources"
+      },
+      {
+        "name": "grounding_within_actor_visibility",
+        "passed": true,
+        "blocking": true,
+        "detail": "each actor cited only sources it could see"
+      },
+      {
+        "name": "no_quarantined_text_in_card",
+        "passed": true,
+        "blocking": true,
+        "detail": "none"
+      },
+      {
+        "name": "output_safety_rescan",
+        "passed": true,
+        "blocking": true,
+        "detail": "no unsafe or fact-asserting content"
+      },
+      {
+        "name": "review_checked_all_cited_sources",
+        "passed": true,
+        "blocking": false,
+        "detail": "all cited excerpts reviewed"
+      },
+      {
+        "name": "mo_label_agreement",
+        "passed": true,
+        "blocking": false,
+        "detail": "rule and reviewer agree"
+      },
+      {
+        "name": "evidence_not_overstated",
+        "passed": true,
+        "blocking": false,
+        "detail": "reviewer grading within rule ceiling"
+      },
+      {
+        "name": "dependency_cooperation_intent_assessed_separately",
+        "passed": true,
+        "blocking": false,
+        "detail": "POTENTIAL_COLLUSION: Necessary roles (employer, provider) interacted in the simulation, but intent is unresolved for employer, provider. Needs human review and real data."
+      }
+    ]
+  },
+  "flags": [
+    "intent_unresolved:employer",
+    "intent_unresolved:provider",
+    "intent_unresolved:trainee",
+    "mo_label_provisional:KNOWN",
+    "substitutable_actor:trainee"
+  ]
+}

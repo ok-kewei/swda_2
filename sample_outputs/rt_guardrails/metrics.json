@@ -1,0 +1,39 @@
+{
+  "events": 73,
+  "llm_calls": 12,
+  "llm_calls_by_agent": {
+    "provider": 3,
+    "employer": 3,
+    "trainee": 4,
+    "review": 2
+  },
+  "estimated_tokens": 3310,
+  "estimated_cost_usd": 0.0331,
+  "retries": 5,
+  "validation_failures": 5,
+  "tool_calls_allowed": 0,
+  "tool_calls_denied": 3,
+  "messages_routed": 3,
+  "messages_blocked": 0,
+  "sources_quarantined": 0,
+  "limit_hits": 0,
+  "event_counts": {
+    "card_created": 1,
+    "draft_assembled": 1,
+    "handoff_to_human": 1,
+    "llm_end": 12,
+    "llm_start": 12,
+    "llm_usage": 12,
+    "message_routed": 3,
+    "retry": 5,
+    "round_end": 2,
+    "round_start": 2,
+    "run_paused": 1,
+    "run_start": 1,
+    "tool_denied": 3,
+    "turn_accepted": 6,
+    "turn_skipped": 1,
+    "turn_summary": 5,
+    "validation_failed": 5
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "run_id": "solo_overclaim",
+  "scenario": "scenarios/solo_overclaim.json",
+  "scenario_id": "solo_overclaim"
+}

@@ -1,0 +1,5 @@
+{
+  "run_id": "bundled_enrolment_cash_reward",
+  "scenario": "scenarios/bundled_enrolment_cash_reward.json",
+  "scenario_id": "bundled_enrolment_cash_reward"
+}

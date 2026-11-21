@@ -1,0 +1,73 @@
+{
+  "id": "hire_train_release",
+  "title": "Short-term hiring timed to funded courses",
+  "theme": "How might an employer and a provider align hiring and course cohorts so that grant support, rather than the job, drives the hire?",
+  "turn_order": ["employer", "provider", "trainee"],
+  "scripts": {
+    "employer": [
+      {"__tool_calls__": [{"name": "employer_evidence_list", "args": {}}]},
+      {
+        "messages": [
+          {"to": "provider", "intent": "propose", "text": "Simulated: would you run cohorts timed to our short-term hires so their course falls inside the contract period?"},
+          {"to": "trainee", "intent": "inform", "text": "Simulated: role offered for the course period; extension not expected."}
+        ],
+        "contributions": [
+          {"function": "employment_record", "description": "Hires people on short contracts timed to a funded course and releases them after completion.", "benefit_to_self": "Grant-supported headcount at low net cost.", "behaviour_tags": ["sham_employment", "employment_ends_after_course"], "grounding": []},
+          {"function": "course_enrolment", "description": "Nominates the new hires for the funded course.", "benefit_to_self": "Eligibility for course and wage support.", "behaviour_tags": [], "grounding": []},
+          {"function": "fee_funding", "description": "Sponsors the course fee, which is largely offset by subsidy.", "benefit_to_self": "Low net training cost.", "behaviour_tags": [], "grounding": []},
+          {"function": "grant_claim_submission", "description": "Claims fee subsidy and any wage support for the hires.", "benefit_to_self": "Receives grant funds.", "behaviour_tags": [], "grounding": []}
+        ],
+        "flows": [
+          {"from_party": "employer", "to_party": "provider", "asset": "course_fee", "description": "Sponsored fee for each hire."},
+          {"from_party": "grant_scheme", "to_party": "employer", "asset": "grant_funds", "description": "Fee subsidy and wage support claimed for the hires."},
+          {"from_party": "employer", "to_party": "trainee", "asset": "employment", "description": "Short contract covering the course period."}
+        ],
+        "assumptions": [{"text": "Wage support is available to the employer while a hire attends training; not stated in sources."}],
+        "done": true
+      }
+    ],
+    "provider": [
+      {
+        "messages": [{"to": "employer", "intent": "accept", "text": "Simulated: would schedule cohorts around your hiring dates."}],
+        "contributions": [
+          {"function": "course_delivery_record", "description": "Runs cohorts timed to the employer's hiring cycle and records delivery.", "benefit_to_self": "Reliably filled cohorts.", "behaviour_tags": [], "grounding": []}
+        ],
+        "flows": [],
+        "assumptions": [{"text": "The provider knows the hires are temporary; it could equally be unaware."}],
+        "done": true
+      }
+    ],
+    "trainee": [
+      {
+        "messages": [{"to": "employer", "intent": "accept", "text": "Simulated: would take the short role for the wage and certificate."}],
+        "contributions": [
+          {"function": "attendance_attestation", "description": "Attends and confirms attendance in a role expected to end after the course.", "benefit_to_self": "Short-term wage and a certificate.", "behaviour_tags": [], "grounding": []}
+        ],
+        "flows": [],
+        "assumptions": [{"text": "The trainee may not know the role is temporary."}],
+        "done": true
+      }
+    ],
+    "review": [
+      {"__tool_calls__": [{"name": "draft_card_read", "args": {}}, {"name": "mo_library_list", "args": {}}]},
+      {
+        "source_findings": [],
+        "assumption_findings": [
+          {"assumption_index": 0, "finding": "unsupported", "note": "Wage support is not described in the annexes; confirm scheme rules before testing."},
+          {"assumption_index": 1, "finding": "reasonable", "note": "Provider knowledge is unknown; essential does not mean complicit."},
+          {"assumption_index": 2, "finding": "reasonable", "note": "Trainee may be unwitting."}
+        ],
+        "evidence_strength": "LOW",
+        "mo_label": "KNOWN",
+        "mo_ids": ["MO-06"],
+        "mo_rationale": "Matches MO-06: people hired only to attend a course and let go afterwards. No Annex B excerpt relates to this pattern.",
+        "test_data_needed": [
+          {"data_item": "Employment start and end dates relative to course dates", "purpose": "Detect contracts that start and end with a funded course", "granularity": "pseudonymised_record"},
+          {"data_item": "Employer retention rate after course completion", "purpose": "Compare against sector baseline", "granularity": "aggregate"},
+          {"data_item": "Share of an employer's training claims from staff with tenure under three months", "purpose": "Spot hiring driven by grants", "granularity": "aggregate"}
+        ],
+        "concerns": ["Provider is functionally essential but may be unwitting; avoid treating it as a co-conspirator without data."]
+      }
+    ]
+  }
+}

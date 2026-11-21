@@ -1,0 +1,8 @@
+{
+  "id": "rt_budget_exhaustion",
+  "title": "Red team: LLM call budget exhausted mid-simulation",
+  "theme": "Same scripts as bundled_enrolment_cash_reward with max_llm_calls=3.",
+  "turn_order": ["provider", "trainee", "employer"],
+  "limits_override": {"max_llm_calls": 3},
+  "scripts_from": "bundled_enrolment_cash_reward"
+}

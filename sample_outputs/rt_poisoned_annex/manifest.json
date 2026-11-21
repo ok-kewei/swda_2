@@ -1,0 +1,5 @@
+{
+  "run_id": "rt_poisoned_annex",
+  "scenario": "scenarios/rt_poisoned_annex.json",
+  "scenario_id": "rt_poisoned_annex"
+}

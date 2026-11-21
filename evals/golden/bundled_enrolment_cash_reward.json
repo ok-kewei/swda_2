@@ -1,0 +1,526 @@
+{
+  "schema_version": "1.0",
+  "scenario_id": "bundled_enrolment_cash_reward",
+  "title": "Recruiter-led bundled enrolment with cash reward (simulated)",
+  "theme": "How might recruiter outreach, course bundling and cash rewards combine around the use of individual training credits?",
+  "disclaimer": "SIMULATED RISK HYPOTHESIS. Produced by scripted/LLM agents role-playing incentives; it is NOT evidence that any person or organisation has behaved this way. Social media excerpts are unverified. Human approval means 'worth testing against data', not a finding of fact.",
+  "status": "PENDING_HUMAN_REVIEW",
+  "actors": [
+    {
+      "actor": "trainee",
+      "role": "acceptor",
+      "functions": [
+        "attendance_attestation",
+        "course_enrolment",
+        "fee_funding"
+      ],
+      "contributions": [
+        "Applies own training credits to the bundled diploma.",
+        "Enrols without a clear view of what the course covers.",
+        "Confirms attendance while attending little of the course."
+      ],
+      "benefits": [
+        "Keeps the reward and the certificate.",
+        "Low effort; reward without real study.",
+        "Receives the cash reward."
+      ],
+      "functionally_necessary": true,
+      "intent": "UNKNOWN"
+    },
+    {
+      "actor": "provider",
+      "role": "initiator",
+      "functions": [
+        "assessment_result",
+        "grant_claim_submission",
+        "incentive_payment",
+        "recruitment_outreach"
+      ],
+      "contributions": [
+        "Uses recruiters to approach people with unused credits and promote a short course that is only sold inside a longer diploma.",
+        "Offers the enrolee a cash reward after credits are applied.",
+        "Passes enrolees regardless of participation so the course stays fundable.",
+        "Claims funding for the full diploma."
+      ],
+      "benefits": [
+        "Completion and pass rates stay high.",
+        "Higher conversion of approached people into enrolments.",
+        "More funded enrolments at the higher diploma fee.",
+        "Receives grant funds for the whole bundle."
+      ],
+      "functionally_necessary": true,
+      "intent": "UNKNOWN"
+    },
+    {
+      "actor": "employer",
+      "role": "declined",
+      "functions": [],
+      "contributions": [],
+      "benefits": [],
+      "functionally_necessary": null,
+      "intent": "NOT_APPLICABLE"
+    }
+  ],
+  "flows": [
+    {
+      "label": "SIMULATED",
+      "proposed_by": "provider",
+      "round": 1,
+      "from_party": "provider",
+      "to_party": "trainee",
+      "asset": "cash",
+      "description": "Cash reward to the enrolee after credits are applied."
+    },
+    {
+      "label": "SIMULATED",
+      "proposed_by": "provider",
+      "round": 1,
+      "from_party": "grant_scheme",
+      "to_party": "provider",
+      "asset": "grant_funds",
+      "description": "Funding claimed for the full diploma."
+    },
+    {
+      "label": "SIMULATED",
+      "proposed_by": "trainee",
+      "round": 1,
+      "from_party": "trainee",
+      "to_party": "provider",
+      "asset": "training_credits",
+      "description": "Credits applied to the bundled diploma fee."
+    }
+  ],
+  "source_material": [
+    {
+      "source_id": "MO-04",
+      "annex": "A",
+      "text": "Cash for enrolment: Agents or recruiters offer cash for using credits and suggest attendance is optional",
+      "basis": "Observed",
+      "cited_by": [
+        "rule:mo_classification"
+      ]
+    },
+    {
+      "source_id": "S1",
+      "annex": "B",
+      "text": "I signed up for a short course, then found out it's only available as part of a longer diploma. Feels misleading.",
+      "basis": "Unverified",
+      "cited_by": [
+        "provider"
+      ]
+    },
+    {
+      "source_id": "S3",
+      "annex": "B",
+      "text": "A marketing agent kept pushing my elderly mum to use her credits and mentioned a cash reward. Not sure what the course even was.",
+      "basis": "Unverified",
+      "cited_by": [
+        "trainee"
+      ]
+    },
+    {
+      "source_id": "S4",
+      "annex": "B",
+      "text": "Nobody in my class ever fails. Feels like providers just pass everyone to keep the funding.",
+      "basis": "Unverified",
+      "cited_by": [
+        "provider"
+      ]
+    }
+  ],
+  "simulated_behaviour": [
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "recruitment_outreach",
+      "description": "Uses recruiters to approach people with unused credits and promote a short course that is only sold inside a longer diploma.",
+      "benefit_to_self": "More funded enrolments at the higher diploma fee.",
+      "behaviour_tags": [
+        "recruiter_outreach",
+        "course_bundling"
+      ],
+      "grounding": [
+        {
+          "source_id": "S1",
+          "relation": "S1 describes a short course only available as part of a longer diploma."
+        }
+      ],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "incentive_payment",
+      "description": "Offers the enrolee a cash reward after credits are applied.",
+      "benefit_to_self": "Higher conversion of approached people into enrolments.",
+      "behaviour_tags": [
+        "cash_incentive_for_enrolment"
+      ],
+      "grounding": [],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "assessment_result",
+      "description": "Passes enrolees regardless of participation so the course stays fundable.",
+      "benefit_to_self": "Completion and pass rates stay high.",
+      "behaviour_tags": [
+        "assured_pass",
+        "attendance_optional"
+      ],
+      "grounding": [
+        {
+          "source_id": "S4",
+          "relation": "S4 is a perception that providers pass everyone to keep funding."
+        }
+      ],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "provider",
+      "round": 1,
+      "function": "grant_claim_submission",
+      "description": "Claims funding for the full diploma.",
+      "benefit_to_self": "Receives grant funds for the whole bundle.",
+      "behaviour_tags": [],
+      "grounding": [],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "trainee",
+      "round": 1,
+      "function": "fee_funding",
+      "description": "Applies own training credits to the bundled diploma.",
+      "benefit_to_self": "Receives the cash reward.",
+      "behaviour_tags": [],
+      "grounding": [
+        {
+          "source_id": "S3",
+          "relation": "S3 describes an agent pushing credit use alongside a cash reward."
+        }
+      ],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "trainee",
+      "round": 1,
+      "function": "course_enrolment",
+      "description": "Enrols without a clear view of what the course covers.",
+      "benefit_to_self": "Low effort; reward without real study.",
+      "behaviour_tags": [],
+      "grounding": [
+        {
+          "source_id": "S3",
+          "relation": "S3 says the person was unsure what the course was."
+        }
+      ],
+      "awareness": "not_stated"
+    },
+    {
+      "label": "SIMULATED",
+      "actor": "trainee",
+      "round": 1,
+      "function": "attendance_attestation",
+      "description": "Confirms attendance while attending little of the course.",
+      "benefit_to_self": "Keeps the reward and the certificate.",
+      "behaviour_tags": [
+        "attendance_optional"
+      ],
+      "grounding": [],
+      "awareness": "not_stated"
+    }
+  ],
+  "assumptions": [
+    {
+      "label": "ASSUMPTION",
+      "made_by": "provider",
+      "round": 1,
+      "text": "Recruiters are paid per enrolment; this is not stated in any source."
+    },
+    {
+      "label": "ASSUMPTION",
+      "made_by": "trainee",
+      "round": 1,
+      "text": "The trainee knowingly accepts low attendance; some targets may instead be unwitting, as S3 hints."
+    }
+  ],
+  "functional_dependency": {
+    "participants": [
+      "provider",
+      "trainee"
+    ],
+    "required_functions": [
+      "assessment_result",
+      "attendance_attestation",
+      "course_enrolment",
+      "fee_funding",
+      "grant_claim_submission",
+      "incentive_payment",
+      "recruitment_outreach"
+    ],
+    "removal_results": [
+      {
+        "removed_actor": "provider",
+        "remaining_actors": [
+          "trainee"
+        ],
+        "still_feasible": false,
+        "uncovered_functions": [
+          "assessment_result",
+          "grant_claim_submission",
+          "incentive_payment",
+          "recruitment_outreach"
+        ],
+        "functionally_necessary": true
+      },
+      {
+        "removed_actor": "trainee",
+        "remaining_actors": [
+          "provider"
+        ],
+        "still_feasible": false,
+        "uncovered_functions": [
+          "attendance_attestation",
+          "fee_funding"
+        ],
+        "functionally_necessary": true
+      }
+    ],
+    "necessary_roles": [
+      "provider",
+      "trainee"
+    ],
+    "substitutable_roles": [],
+    "single_actor_feasible_by": [],
+    "note": "Shows which roles the simulated mechanism needs. It does not show cooperation or intent."
+  },
+  "cooperation": {
+    "interactions": [
+      {
+        "from_actor": "provider",
+        "to_actor": "trainee",
+        "round": 1,
+        "offer_intent": "propose",
+        "offer_text": "Simulated offer: enrol in a bundled diploma using your credits; a cash reward follows once credits are applied, and attendance is presented as flexible.",
+        "response": "accepted",
+        "response_text": "Simulated: would accept, since the credits would otherwise go unused and the reward is attractive."
+      },
+      {
+        "from_actor": "provider",
+        "to_actor": "employer",
+        "round": 1,
+        "offer_intent": "inform",
+        "offer_text": "Simulated: would any of your staff join the bundled diploma on the same terms?",
+        "response": "declined",
+        "response_text": "Simulated: declines; no staff need this course and sponsorship would be traceable to the business."
+      }
+    ],
+    "roles": [
+      {
+        "actor": "trainee",
+        "role": "acceptor",
+        "contributed": true,
+        "excluded": false
+      },
+      {
+        "actor": "provider",
+        "role": "initiator",
+        "contributed": true,
+        "excluded": false
+      },
+      {
+        "actor": "employer",
+        "role": "declined",
+        "contributed": false,
+        "excluded": true
+      }
+    ],
+    "cooperating_pairs": [
+      [
+        "provider",
+        "trainee"
+      ]
+    ],
+    "summary": "SIMULATED_COOPERATION",
+    "explanation": "trainee accepted an offer from provider (round 1) (Simulated interaction, not a real-world fact.)"
+  },
+  "intent_assessment": [
+    {
+      "actor": "trainee",
+      "intent": "UNKNOWN",
+      "basis": "The scenario does not establish whether this actor knew the conduct was improper. Taking part or accepting a reward does not by itself show intent."
+    },
+    {
+      "actor": "provider",
+      "intent": "UNKNOWN",
+      "basis": "The scenario does not establish whether this actor knew the conduct was improper. Taking part or accepting a reward does not by itself show intent."
+    },
+    {
+      "actor": "employer",
+      "intent": "NOT_APPLICABLE",
+      "basis": "Did not contribute to the mechanism."
+    }
+  ],
+  "overall_assessment": {
+    "classification": "POTENTIAL_COLLUSION",
+    "core_actors": [
+      "provider",
+      "trainee"
+    ],
+    "intent_resolved": false,
+    "explanation": "Necessary roles (provider, trainee) interacted in the simulation, but intent is unresolved for provider, trainee. Needs human review and real data."
+  },
+  "mo_classification": {
+    "provisional": true,
+    "rule_label": "VARIATION",
+    "fully_covered_mos": [
+      "MO-04"
+    ],
+    "partial_matches": {},
+    "novel_elements": [
+      "assured_pass",
+      "course_bundling"
+    ],
+    "reviewer_label": "VARIATION",
+    "reviewer_mo_ids": [
+      "MO-04"
+    ],
+    "reviewer_rationale": "Covers all MO-04 features (recruiter outreach, cash for credit use, optional attendance) and adds course bundling and assured passing.",
+    "agreement": true,
+    "tag_annotation_version": "2026-11-19.1"
+  },
+  "evidence": {
+    "rule_strength": "LOW",
+    "reviewer_strength": "LOW",
+    "final_strength": "LOW",
+    "basis": [
+      "MO-04 basis 'Observed' is a typology-level label; it does not show that this simulated scenario occurred.",
+      "S1: unverified social media excerpt; at most a weak signal for one element, not proof of the full arrangement.",
+      "S3: unverified social media excerpt; at most a weak signal for one element, not proof of the full arrangement.",
+      "S4: unverified social media excerpt; at most a weak signal for one element, not proof of the full arrangement.",
+      "Simulated agent behaviour is a hypothesis and adds no evidential weight.",
+      "MODERATE or STRONG require verified data and a human reviewer."
+    ]
+  },
+  "test_data_needed": [
+    {
+      "data_item": "Enrolment counts by recruiter or referral channel",
+      "purpose": "Check whether bundled-diploma enrolments cluster by channel",
+      "granularity": "aggregate"
+    },
+    {
+      "data_item": "Attendance versus assessment outcome per enrolment",
+      "purpose": "Test whether passes occur with low attendance",
+      "granularity": "pseudonymised_record"
+    },
+    {
+      "data_item": "Share of short-course enquiries converted to diploma enrolments",
+      "purpose": "Measure bundling effect",
+      "granularity": "aggregate"
+    },
+    {
+      "data_item": "Age band of credit users by provider",
+      "purpose": "Check for concentration among older credit holders",
+      "granularity": "aggregate"
+    }
+  ],
+  "review": {
+    "performed_by": "review_agent",
+    "completed": true,
+    "source_findings": [
+      {
+        "source_id": "S1",
+        "finding": "supports",
+        "note": "Bundling complaint is consistent with the outreach step; it does not show intent."
+      },
+      {
+        "source_id": "S3",
+        "finding": "supports",
+        "note": "Cash reward tied to credit use matches the incentive step; single unverified account."
+      },
+      {
+        "source_id": "S4",
+        "finding": "weak",
+        "note": "Perception of high pass rates; not evidence that passes are assured."
+      }
+    ],
+    "assumption_findings": [
+      {
+        "assumption_index": 0,
+        "finding": "questionable",
+        "note": "Recruiter payment basis is unknown; test with provider-recruiter contract data."
+      },
+      {
+        "assumption_index": 1,
+        "finding": "reasonable",
+        "note": "Knowing versus unwitting trainees should be treated as two sub-patterns."
+      }
+    ],
+    "concerns": [
+      "S3 involves an elderly relative; if the pattern is real, vulnerable credit holders may be targeted and could be unwitting."
+    ],
+    "deterministic_checks": [
+      {
+        "name": "grounding_ids_exist_and_usable",
+        "passed": true,
+        "blocking": true,
+        "detail": "all grounding IDs resolve to usable sources"
+      },
+      {
+        "name": "grounding_within_actor_visibility",
+        "passed": true,
+        "blocking": true,
+        "detail": "each actor cited only sources it could see"
+      },
+      {
+        "name": "no_quarantined_text_in_card",
+        "passed": true,
+        "blocking": true,
+        "detail": "none"
+      },
+      {
+        "name": "output_safety_rescan",
+        "passed": true,
+        "blocking": true,
+        "detail": "no unsafe or fact-asserting content"
+      },
+      {
+        "name": "review_checked_all_cited_sources",
+        "passed": true,
+        "blocking": false,
+        "detail": "all cited excerpts reviewed"
+      },
+      {
+        "name": "mo_label_agreement",
+        "passed": true,
+        "blocking": false,
+        "detail": "rule and reviewer agree"
+      },
+      {
+        "name": "evidence_not_overstated",
+        "passed": true,
+        "blocking": false,
+        "detail": "reviewer grading within rule ceiling"
+      },
+      {
+        "name": "dependency_cooperation_intent_assessed_separately",
+        "passed": true,
+        "blocking": false,
+        "detail": "POTENTIAL_COLLUSION: Necessary roles (provider, trainee) interacted in the simulation, but intent is unresolved for provider, trainee. Needs human review and real data."
+      }
+    ]
+  },
+  "flags": [
+    "excluded_declined:employer",
+    "intent_unresolved:provider",
+    "intent_unresolved:trainee",
+    "mo_label_provisional:VARIATION"
+  ]
+}

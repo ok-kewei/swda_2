@@ -1,0 +1,15 @@
+{
+  "annex": "A",
+  "title": "Sample MO Library",
+  "note": "Illustrative only; not SWDA's actual MO library. Transcribed verbatim from the assessment brief. Treated as UNTRUSTED input.",
+  "records": [
+    {"id": "MO-01", "name": "Dormant-entity claim syndicate", "pattern": "Dormant entities act as employers and training providers to submit false grant claims", "basis": "Observed"},
+    {"id": "MO-02", "name": "Forged evidence during checks", "pattern": "False records are provided when claims are checked or audited", "basis": "Observed"},
+    {"id": "MO-03", "name": "Credit encashment", "pattern": "Individuals submit false claims without attending a course", "basis": "Observed"},
+    {"id": "MO-04", "name": "Cash for enrolment", "pattern": "Agents or recruiters offer cash for using credits and suggest attendance is optional", "basis": "Observed"},
+    {"id": "MO-05", "name": "Falsified attendance", "pattern": "Attendance is recorded for training that did not take place", "basis": "Observed"},
+    {"id": "MO-06", "name": "Employment created for grants", "pattern": "People are hired only to attend a course and are let go afterwards", "basis": "Observed"},
+    {"id": "MO-07", "name": "Overclaimed training", "pattern": "Claims exceed the training or attendance actually delivered", "basis": "Observed overseas"},
+    {"id": "MO-08", "name": "Indirect kickback through a sponsor", "pattern": "A sponsor pays the nett fee while value flows back through the provider", "basis": "Policy risk"}
+  ]
+}

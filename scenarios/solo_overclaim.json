@@ -1,0 +1,42 @@
+{
+  "id": "solo_overclaim",
+  "title": "Provider overclaims delivered hours",
+  "theme": "Could a provider claim for more training than it delivered, and does that need anyone else's cooperation?",
+  "turn_order": ["provider", "trainee", "employer"],
+  "scripts": {
+    "provider": [
+      {"__tool_calls__": [{"name": "provider_evidence_read", "args": {"source_id": "S2"}}]},
+      {
+        "messages": [{"to": "trainee", "intent": "inform", "text": "Simulated: class time is shortened; the course record is unchanged."}],
+        "contributions": [
+          {"function": "course_delivery_record", "description": "Records more training hours than were delivered.", "benefit_to_self": "Lower delivery cost per trainee.", "behaviour_tags": ["claim_exceeds_delivery", "partial_delivery"], "grounding": [{"source_id": "S2", "relation": "S2 questions price relative to content, consistent with less being delivered than paid for."}]},
+          {"function": "grant_claim_submission", "description": "Claims funding for the recorded hours.", "benefit_to_self": "Full funding for partial delivery.", "behaviour_tags": ["claim_exceeds_delivery"], "grounding": []}
+        ],
+        "flows": [{"from_party": "grant_scheme", "to_party": "provider", "asset": "grant_funds", "description": "Funding for hours recorded but not delivered."}],
+        "assumptions": [{"text": "Trainees do not see or sign the hour-level delivery record."}],
+        "done": true
+      }
+    ],
+    "trainee": [
+      {"messages": [{"to": "provider", "intent": "inform", "text": "Simulated: unaware of what is recorded; no action taken."}], "contributions": [], "done": true}
+    ],
+    "employer": [
+      {"messages": [], "contributions": [], "done": true}
+    ],
+    "review": [
+      {
+        "source_findings": [{"source_id": "S2", "finding": "weak", "note": "Price complaint only; consistent with but not indicative of overclaiming."}],
+        "assumption_findings": [{"assumption_index": 0, "finding": "reasonable", "note": "Test whether trainees attest at session level."}],
+        "evidence_strength": "LOW",
+        "mo_label": "KNOWN",
+        "mo_ids": ["MO-07"],
+        "mo_rationale": "Matches MO-07, claims exceeding training delivered. MO-07 basis is observed overseas, so local applicability is an assumption.",
+        "test_data_needed": [
+          {"data_item": "Claimed hours versus scheduled session hours per course run", "purpose": "Detect claims above schedule", "granularity": "aggregate"},
+          {"data_item": "Session-level attendance timestamps", "purpose": "Compare actual session length with recorded length", "granularity": "pseudonymised_record"}
+        ],
+        "concerns": ["Single-actor misconduct: route to standard provider audit rather than collusion review."]
+      }
+    ]
+  }
+}

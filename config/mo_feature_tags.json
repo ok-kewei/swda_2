@@ -1,0 +1,17 @@
+{
+  "_comment": "ANALYST ANNOTATION (assumption, not from Annex A): behaviour tags that characterise each MO description. Used for deterministic MO classification. Change these and the golden regression set must be re-approved.",
+  "version": "2026-11-19.1",
+  "mo_tags": {
+    "MO-01": ["dormant_entity", "false_claim"],
+    "MO-02": ["forged_records_at_audit"],
+    "MO-03": ["no_attendance", "false_claim"],
+    "MO-04": ["cash_incentive_for_enrolment", "recruiter_outreach", "attendance_optional"],
+    "MO-05": ["falsified_attendance"],
+    "MO-06": ["sham_employment", "employment_ends_after_course"],
+    "MO-07": ["claim_exceeds_delivery", "partial_delivery"],
+    "MO-08": ["employer_sponsorship", "value_return_to_sponsor"]
+  },
+  "thresholds": {
+    "variation_min_coverage": 0.67
+  }
+}

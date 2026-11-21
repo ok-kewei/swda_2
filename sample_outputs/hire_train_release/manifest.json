@@ -1,0 +1,5 @@
+{
+  "run_id": "hire_train_release",
+  "scenario": "scenarios/hire_train_release.json",
+  "scenario_id": "hire_train_release"
+}

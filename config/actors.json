@@ -1,0 +1,75 @@
+{
+  "_comment": "Actor profiles. Goals, capabilities and private knowledge are ANALYST ASSUMPTIONS for simulation, not facts about any real party. Enforced in code by collusion_sim.tools.ToolGateway and collusion_sim.agents.",
+  "actors": {
+    "trainee": {
+      "display_name": "Trainee Agent",
+      "kind": "actor",
+      "goals": [
+        "Gain a certificate or skills with minimal personal cost and time",
+        "Use available training credits before they lapse",
+        "Receive any personal cash or in-kind benefit on offer"
+      ],
+      "capabilities": ["course_enrolment", "fee_funding", "attendance_attestation"],
+      "private_knowledge": [
+        "Own training-credit balance and eligibility",
+        "Own course schedule, what was actually attended, and what was promised by recruiters"
+      ],
+      "cannot_see": ["Provider claim submissions", "Employer payroll", "SWDA screening rules", "MO library"],
+      "visible_sources": ["S1", "S3", "S5"],
+      "allowed_tools": ["trainee_evidence_list", "trainee_evidence_read"],
+      "may_message": ["provider", "employer"]
+    },
+    "provider": {
+      "display_name": "Training Provider Agent",
+      "kind": "actor",
+      "goals": [
+        "Maximise funded enrolments and course revenue",
+        "Keep pass rates and funding eligibility high",
+        "Minimise delivery cost per trainee"
+      ],
+      "capabilities": ["course_enrolment", "course_delivery_record", "assessment_result", "grant_claim_submission", "incentive_payment", "recruitment_outreach", "audit_evidence"],
+      "private_knowledge": [
+        "Own attendance and assessment systems",
+        "Course catalogue, bundling and fee structure",
+        "Claim submission process from the provider side"
+      ],
+      "cannot_see": ["Trainee personal finances", "Employer payroll", "SWDA screening rules", "MO library"],
+      "visible_sources": ["S1", "S2", "S4"],
+      "allowed_tools": ["provider_evidence_list", "provider_evidence_read"],
+      "may_message": ["trainee", "employer"]
+    },
+    "employer": {
+      "display_name": "Employer Agent",
+      "kind": "actor",
+      "goals": [
+        "Reduce net cost of staff training and headcount",
+        "Obtain grant-funded certifications for staff with minimal lost work time",
+        "Access any wage or fee support available"
+      ],
+      "capabilities": ["course_enrolment", "fee_funding", "attendance_attestation", "grant_claim_submission", "employment_record", "incentive_payment", "audit_evidence"],
+      "private_knowledge": [
+        "Own payroll, hiring and release decisions",
+        "Which staff are nominated and sponsored for training"
+      ],
+      "cannot_see": ["Provider attendance systems", "Trainee personal finances", "SWDA screening rules", "MO library"],
+      "visible_sources": ["S2", "S4"],
+      "allowed_tools": ["employer_evidence_list", "employer_evidence_read"],
+      "may_message": ["trainee", "provider"]
+    },
+    "review": {
+      "display_name": "Review Agent",
+      "kind": "reviewer",
+      "goals": [
+        "Check source references, assumptions and evidence strength",
+        "Compare the draft pattern with the MO library",
+        "Recommend data needed to test the pattern"
+      ],
+      "capabilities": [],
+      "private_knowledge": ["MO library (Annex A)", "All non-quarantined source excerpts", "Draft pattern card"],
+      "cannot_see": ["Raw agent-to-agent message bodies beyond the draft card"],
+      "visible_sources": ["*"],
+      "allowed_tools": ["source_validate", "mo_library_list", "mo_compare", "draft_card_read"],
+      "may_message": []
+    }
+  }
+}

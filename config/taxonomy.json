@@ -1,0 +1,38 @@
+{
+  "_comment": "Controlled vocabularies. Functions are abstract roles a scheme step needs (used by the actor-removal check). Behaviour tags describe pattern features at risk-pattern level (used by MO classification). Both are ANALYST ASSUMPTIONS.",
+  "functions": {
+    "course_enrolment": "Enrols a person on a funded course",
+    "fee_funding": "Pays or funds the course fee (credits or sponsorship)",
+    "attendance_attestation": "Confirms attendance from the participant or supervisor side",
+    "course_delivery_record": "Creates delivery and attendance records for a course",
+    "assessment_result": "Issues the assessment outcome or certificate",
+    "grant_claim_submission": "Submits a grant or subsidy claim",
+    "employment_record": "Holds employment status used for eligibility",
+    "incentive_payment": "Transfers value to another actor outside the normal fee",
+    "recruitment_outreach": "Approaches prospective trainees",
+    "audit_evidence": "Supplies records when a claim is checked"
+  },
+  "behaviour_tags": [
+    "dormant_entity",
+    "false_claim",
+    "forged_records_at_audit",
+    "no_attendance",
+    "cash_incentive_for_enrolment",
+    "recruiter_outreach",
+    "attendance_optional",
+    "falsified_attendance",
+    "sham_employment",
+    "employment_ends_after_course",
+    "claim_exceeds_delivery",
+    "partial_delivery",
+    "employer_sponsorship",
+    "value_return_to_sponsor",
+    "course_bundling",
+    "assured_pass",
+    "employer_nomination",
+    "volume_steering",
+    "vulnerable_target"
+  ],
+  "flow_assets": ["grant_funds", "training_credits", "course_fee", "cash", "certification", "enrolments", "employment", "records"],
+  "flow_parties": ["trainee", "provider", "employer", "grant_scheme"]
+}

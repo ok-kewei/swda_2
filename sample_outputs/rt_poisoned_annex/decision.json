@@ -1,0 +1,7 @@
+{
+  "decision": "reject",
+  "reviewer": "demo.analyst",
+  "reason": "Red-team or incomplete run; kept for audit only.",
+  "card_hash": "dd07226c99be76d5aef3936a0995bb25f188d6dcb620616ce0485382a9040339",
+  "meaning": ""
+}
